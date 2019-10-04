@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.app.albumlist.R
 import com.app.albumlist.model.entity.AlbumData
@@ -32,9 +33,9 @@ class AlbumsListAdapter internal constructor(
         val current = albums[position]
         holder.albumItemView.text = current.title
         if(position %2 == 1) {
-            holder.itemLayout.setBackgroundColor(Color.parseColor("#FFFFFF"))
+            holder.itemLayout.setBackgroundColor(ContextCompat.getColor(inflater.context, android.R.color.white))
         } else {
-            holder.itemLayout.setBackgroundColor(Color.parseColor("#FFFAF8FD"))
+            holder.itemLayout.setBackgroundColor(ContextCompat.getColor(inflater.context, R.color.colorListAlternate))
         }
     }
 
