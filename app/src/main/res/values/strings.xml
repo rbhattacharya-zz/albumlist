@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">View Albums List</string>
+    <string name="placeholder_text">Album Title</string>
+    <string name="no_data_available">The app needs to be online for the first time. Please check your internet connection.</string>
+</resources>
