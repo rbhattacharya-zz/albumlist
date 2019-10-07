@@ -19,26 +19,11 @@ class AlbumListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_album_list)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.albums_list_recycler_view)
-        val adapter = AlbumsListAdapter(this)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
-        val emptyView = findViewById<TextView>(R.id.empty_view)
-
-        val albumViewModel = ViewModelProvider(this, ViewModelFactory(this.application)).get(AlbumViewModel::class.java)
-        albumViewModel.allAlbumsData.observe(this, Observer { albums ->
-            albums?.let {
-                adapter.setAlbums(it)
-
-                if(adapter.itemCount == 0){
-                    recyclerView.visibility = View.GONE
-                    emptyView.visibility = View.VISIBLE
-                } else {
-                    recyclerView.visibility = View.VISIBLE
-                    emptyView.visibility = View.GONE
-                }
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction().run {
+                replace(R.id.albums_list_recycler_view_fragment, AlbumListRecyclerViewFragment())
+                commit()
             }
-        })
+        }
     }
 }

@@ -24,8 +24,6 @@ class AlbumViewModelTest {
     // Use a fake repository to be injected into the viewmodel
     private lateinit var fakeAlbumRepository: FakeAlbumRepository
 
-    //val context: Application = ApplicationProvider.getApplicationContext()
-
     // Set the main coroutines dispatcher for unit testing.
     @ExperimentalCoroutinesApi
     @get:Rule
